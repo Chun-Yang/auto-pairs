@@ -357,12 +357,12 @@ function! AutoPairsReturn()
   let cmd = ''
   let cur_char = line[col('.')-1]
   if has_key(b:AutoPairs, prev_char) && b:AutoPairs[prev_char] == cur_char
-    if g:AutoPairsCenterLine && winline() * 3 >= winheight(0) * 2
+    " if g:AutoPairsCenterLine && winline() * 3 >= winheight(0) * 2
       " Use \<BS> instead of \<ESC>cl will cause the placeholder deleted
       " incorrect. because <C-O>zz won't leave Normal mode.
       " Use \<DEL> is a bit wierd. the character before cursor need to be deleted.
-      let cmd = " \<C-O>zz\<ESC>cl\<ESC>"
-    end
+      " let cmd = " \<C-O>zz\<ESC>cl"
+    " end
 
     " If equalprg has been set, then avoid call =
     " https://github.com/jiangmiao/auto-pairs/issues/24
