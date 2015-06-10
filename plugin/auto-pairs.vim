@@ -239,7 +239,7 @@ function! AutoPairsDelete()
   end
 
 
-  if has_key(b:AutoPairs, prev_char) 
+  if has_key(b:AutoPairs, prev_char)
     let close = b:AutoPairs[prev_char]
     if match(line,'^\s*'.close, col('.')-1) != -1
       " Delete (|___)
@@ -361,7 +361,7 @@ function! AutoPairsReturn()
       " Use \<BS> instead of \<ESC>cl will cause the placeholder deleted
       " incorrect. because <C-O>zz won't leave Normal mode.
       " Use \<DEL> is a bit wierd. the character before cursor need to be deleted.
-      let cmd = " \<C-O>zz\<ESC>cl"
+      let cmd = " \<C-O>zz\<ESC>cl\<ESC>"
     end
 
     " If equalprg has been set, then avoid call =
@@ -477,9 +477,9 @@ function! AutoPairsTryInit()
   " supertab doesn't support <SID>AutoPairsReturn
   " when use <SID>AutoPairsReturn  will cause Duplicated <CR>
   "
-  " and when load after vim-endwise will cause unexpected endwise inserted. 
+  " and when load after vim-endwise will cause unexpected endwise inserted.
   " so always load AutoPairs at last
-  
+
   " Buffer level keys mapping
   " comptible with other plugin
   if g:AutoPairsMapCR
